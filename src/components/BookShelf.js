@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Book from './Book'
 // import { Link } from 'react-router-dom'
 
 class BookShelf extends Component {
@@ -9,26 +10,36 @@ class BookShelf extends Component {
 
     return (
       <div>
-        <h2>This is a bookshelf.</h2>
-        <p>Not a great bookshelf yet though.  But one day it <em>will</em> be!</p>
-        Books read
-        <ol>
-          {booksRead.map(book => (
-            <li key={book.id}>{book.title}</li>
-          ))}
-        </ol>
-        Books reading
-        <ol>
-          {booksCurrentlyReading.map(book => (
-            <li key={book.id}>{book.title}</li>
-          ))}
-        </ol>
-        Books would like to read
-        <ol>
-          {booksWantToRead.map(book => (
-            <li key={book.id}>{book.title}</li>
-          ))}
-        </ol>
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">Currently Reading</h2>
+          <div className="bookshelf-books">
+            <ol className="books-grid">
+              {booksCurrentlyReading.map(book => (
+                <li key={book.id}><Book book={ book } /></li>
+              ))}
+            </ol>
+          </div>
+        </div>
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">Want to Read</h2>
+          <div className="bookshelf-books">
+            <ol className="books-grid">
+              {booksWantToRead.map(book => (
+                <li key={book.id}><Book book={ book } /></li>
+              ))}
+            </ol>
+          </div>
+        </div>
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">Read</h2>
+          <div className="bookshelf-books">
+            <ol className="books-grid">
+              {booksRead.map(book => (
+                <li key={book.id}><Book book={ book } /></li>
+              ))}
+            </ol>
+          </div>
+        </div>
       </div>
 
     )

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
+import NavBar from './components/NavBar'
 import './App.css'
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -42,6 +43,7 @@ class BooksApp extends React.Component {
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
+              <NavBar />
             </div>
             <div className="list-books-content">
               <div>
@@ -199,6 +201,7 @@ class BooksApp extends React.Component {
             </div>
           </div>
         )}
+        <footer>{this.props.tester}</footer>
       </div>
     )
   }

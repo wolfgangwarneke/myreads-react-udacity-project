@@ -22,6 +22,16 @@ class BooksApp extends Component {
     })
   }
 
+  updateReadingStatus(book, status) {
+    console.log("Updating book shelf status...")
+    BooksAPI.update(book, status).then((book) => {
+      const books = this.state.books
+      const stateBook = books.find((b) => b.id === book.id)
+      stateBook.shelf = status
+      this.setState({ books: books })
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -36,7 +46,7 @@ class BooksApp extends Component {
           <div>
             <h1>{this.props.tester}</h1>
             <NavBar />
-            <BookShelf books={this.state.books} />
+            <BookShelf books={this.state.books} updateReadingStatus={this.updateReadingStatus} />
           </div>
         )} />
 

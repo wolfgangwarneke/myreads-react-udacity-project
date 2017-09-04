@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
 import NavBar from './components/NavBar'
+import BookShelf from './components/BookShelf'
 import './App.css'
 
 class BooksApp extends Component {
@@ -12,21 +13,31 @@ class BooksApp extends Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    showSearchPage: false
+    showSearchPage: false,
+    books: []
   }
 
   render() {
     return (
       <div className="app">
+        {/*this is a TESTING route*/}
         <Route exact path="/tester" render={() => (
           <div>
             <h1>{this.props.tester}</h1>
           </div>
         )} />
-        /**
+
+        <Route exact path="/" render={() => (
+          <div>
+            <h1>{this.props.tester}</h1>
+            <NavBar />
+            <BookShelf />
+          </div>
+        )} />
+        {/**
          * TODO: Remove the following code after the React Router alternatives are implemented
          * (this is being left in currently for reference)
-         */
+         */}
         {this.state.showSearchPage ? (
           <div className="search-books">
             <div className="search-books-bar">

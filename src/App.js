@@ -29,7 +29,6 @@ class BooksApp extends Component {
         <Route exact path="/tester" render={() => (
           <div>
             <h1>{this.props.tester}</h1>
-            {console.log(this.state.books)}
           </div>
         )} />
 
@@ -37,9 +36,17 @@ class BooksApp extends Component {
           <div>
             <h1>{this.props.tester}</h1>
             <NavBar />
-            <BookShelf />
+            <BookShelf books={this.state.books} />
           </div>
         )} />
+
+        <Route exact path="/search" render={() => (
+          <div>
+            Searching
+          </div>
+        )} />
+
+
         {/**
          * TODO: Remove the following code after the React Router alternatives are implemented
          * (this is being left in currently for reference)

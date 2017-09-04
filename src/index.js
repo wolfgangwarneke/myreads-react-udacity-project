@@ -4,4 +4,7 @@ import { BrowserRouter } from "react-router-dom"
 import App from './App'
 import './index.css'
 
-ReactDOM.render(<App tester="Hello World!" />, document.getElementById('root'))
+ReactDOM.render(
+  <BrowserRouter><App tester='hello from index.js!' /></BrowserRouter>, 
+  document.getElementById('root')
+)

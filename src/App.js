@@ -18,6 +18,15 @@ class BooksApp extends Component {
   render() {
     return (
       <div className="app">
+        <Route exact path="/tester" render={() => (
+          <div>
+            <h1>{this.props.tester}</h1>
+          </div>
+        )} />
+        /**
+         * TODO: Remove the following code after the React Router alternatives are implemented
+         * (this is being left in currently for reference)
+         */
         {this.state.showSearchPage ? (
           <div className="search-books">
             <div className="search-books-bar">

@@ -16,6 +16,11 @@ class BooksApp extends Component {
     showSearchPage: false,
     books: []
   }
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
+  }
 
   render() {
     return (
@@ -24,6 +29,7 @@ class BooksApp extends Component {
         <Route exact path="/tester" render={() => (
           <div>
             <h1>{this.props.tester}</h1>
+            {console.log(this.state.books)}
           </div>
         )} />
 

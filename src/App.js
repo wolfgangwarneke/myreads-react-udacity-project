@@ -6,6 +6,12 @@ import BookShelf from './components/BookShelf'
 import './App.css'
 
 class BooksApp extends Component {
+  constructor(props) {
+    super(props)
+
+    this.updateReadingStatus = this.updateReadingStatus.bind(this)
+  }
+
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -22,14 +28,16 @@ class BooksApp extends Component {
     })
   }
 
+
   updateReadingStatus(book, status) {
-    console.log("Updating book shelf status...")
-    BooksAPI.update(book, status).then((book) => {
-      const books = this.state.books
-      const stateBook = books.find((b) => b.id === book.id)
+    const books = this.state.books
+    BooksAPI.update(book, status).then(() => {
+      const stateBook = books.find((b => ( b.id == book.id ) ))
       stateBook.shelf = status
       this.setState({ books: books })
     })
+
+
   }
 
   render() {

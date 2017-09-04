@@ -3,25 +3,11 @@ import Book from './Book'
 // import { Link } from 'react-router-dom'
 
 class BookShelf extends Component {
-  renderChildren(props) {
-    console.log("Rendering children...")
-    return Children.map(props.children, child => {
-      if (child.type === Book)
-        return React.cloneElement(child, {
-          updateReadingStatus: this.props.updateReadingStatus
-        })
-      else
-        return child
-    })
-  }
-
   render() {
     const booksRead = this.props.books.filter((book) => book.shelf === "read")
     const booksWantToRead = this.props.books.filter((book) => book.shelf === "wantToRead")
     const booksCurrentlyReading = this.props.books.filter((book) => book.shelf === "currentlyReading")
     const updateReadingStatus = this.props.updateReadingStatus
-
-    console.log("BookShelf props", this.props)
 
     return (
       <div>
@@ -30,7 +16,7 @@ class BookShelf extends Component {
           <div className="bookshelf-books">
             <ol className="books-grid">
               {booksCurrentlyReading.map(book => (
-                <li key={book.id}><Book updateReadingStatus={this.props.updateReadingStatus} book={ book } /></li>
+                <li key={book.id}><Book updateReadingStatus={this.props.updateReadingStatus} book={ book } books={ this.props.books } /></li>
               ))}
             </ol>
           </div>

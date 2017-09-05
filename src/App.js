@@ -38,15 +38,21 @@ class BooksApp extends Component {
   updateReadingStatus(book, status) {
     const books = this.state.books
     BooksAPI.update(book, status).then(() => {
-      const stateBook = books.find((b => ( b.id === book.id ) ))
-      stateBook.shelf = status
-      this.setState({ books: books })
+      if (status !== "none" && status) {
+        const stateBook = books.find((b => ( b.id === book.id ) ))
+        stateBook.shelf = status
+        this.setState({ books: books })
+      } else {
+        this.setState({ books: books.filter((b) => ( b.id !== book.id ) ) })
+      }
     })
   }
 
   addBookAndUpdate(book, status) {
+    //do not add the book if it is already in the user's books
     const books = this.state.books
-    books.push(book)
+    if ( !books.find((b => ( b.id === book.id ))) )
+      books.push(book)
     this.setState({ books: books })
     this.updateReadingStatus(book, status)
   }

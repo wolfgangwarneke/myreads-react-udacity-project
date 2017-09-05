@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 class BookShelf extends Component {
   render() {
+    console.log("Bookshelf render", this.props.books)
     const booksRead = this.props.books.filter((book) => book.shelf === "read")
     const booksWantToRead = this.props.books.filter((book) => book.shelf === "wantToRead")
     const booksCurrentlyReading = this.props.books.filter((book) => book.shelf === "currentlyReading")

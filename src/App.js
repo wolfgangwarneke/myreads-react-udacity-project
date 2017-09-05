@@ -4,6 +4,7 @@ import * as BooksAPI from './utils/BooksAPI'
 import NavBar from './components/NavBar'
 import BookShelf from './components/BookShelf'
 import BookSearch from './components/BookSearch'
+import BookDetails from './components/BookDetails'
 import './App.css'
 
 class BooksApp extends Component {
@@ -13,6 +14,7 @@ class BooksApp extends Component {
     this.updateReadingStatus = this.updateReadingStatus.bind(this)
     this.addBookAndUpdate = this.addBookAndUpdate.bind(this)
     this.searchNewBooks = this.searchNewBooks.bind(this)
+    this.getBookById = this.getBookById.bind(this)
   }
 
   state = {
@@ -25,15 +27,16 @@ class BooksApp extends Component {
     showSearchPage: false,
     books: [],
     lastQuery: '',
-    searchResults: []
+    searchResults: [],
+    detailBook: null
   }
+
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       console.log(books)
       this.setState({ books })
     })
   }
-
 
   updateReadingStatus(book, status) {
     const books = this.state.books
@@ -75,7 +78,12 @@ class BooksApp extends Component {
     }
   }
 
-
+  getBookById(id) {
+    BooksAPI.get(id).then((book)=> {
+      console.log("App getBookById response", book)
+      this.setState( { detailBook: book } )
+    })
+  }
 
   render() {
     return (
@@ -110,13 +118,17 @@ class BooksApp extends Component {
           </div>
         )} />
 
+        <Route path="/book/:id" render={(r) => (
+          <BookDetails
+            bookID={r.match.params.id}
+            book={this.state.detailBook}
+            getBookById={this.getBookById}
+          />
+        )} />
 
-        {/**
-         * TODO: Remove the following code after the React Router alternatives are implemented
-         * (this is being left in currently for reference)
-         */}
 
-        <footer>{this.props.tester}</footer>
+
+        <footer>MyReads 2017 Udacity React Nanodegree Wolfgang Warneke</footer>
       </div>
     )
   }

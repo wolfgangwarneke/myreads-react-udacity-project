@@ -1,6 +1,6 @@
 import React, { Component, Children } from 'react'
 import Book from './Book'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class BookShelf extends Component {
   render() {
@@ -40,6 +40,9 @@ class BookShelf extends Component {
               ))}
             </ol>
           </div>
+        </div>
+        <div className="open-search">
+        <Link to="/search">Add a book</Link>
         </div>
       </div>
 

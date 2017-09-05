@@ -11,6 +11,8 @@ class BooksApp extends Component {
     super(props)
 
     this.updateReadingStatus = this.updateReadingStatus.bind(this)
+    this.addBookAndUpdate = this.addBookAndUpdate.bind(this)
+    this.searchNewBooks = this.searchNewBooks.bind(this)
   }
 
   state = {
@@ -21,7 +23,9 @@ class BooksApp extends Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
-    books: []
+    books: [],
+    lastQuery: '',
+    searchResults: []
   }
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -37,9 +41,31 @@ class BooksApp extends Component {
       stateBook.shelf = status
       this.setState({ books: books })
     })
-
-
   }
+
+  addBookAndUpdate(book, status) {
+    const books = this.state.books
+    books.push(book)
+    this.setState({ books: books })
+    this.updateReadingStatus(book, status)
+  }
+
+  searchNewBooks(query) {
+    console.log("Searching for...", query)
+    const searchTerm = query.trim()
+    if (searchTerm) {
+      BooksAPI.search(searchTerm, 12).then((searchResults) => {
+        //const stateBook = books.find((b => ( b.id === book.id ) ))
+        //stateBook.shelf = status
+        //this.setState({ books: books })
+        console.log("Results of "+query, searchResults)
+        if (!searchResults.hasOwnProperty('error'))
+          this.setState({ searchResults: searchResults })
+      })
+    }
+  }
+
+
 
   render() {
     return (
@@ -65,7 +91,11 @@ class BooksApp extends Component {
 
         <Route exact path="/search" render={() => (
           <div>
-            <BookSearch />
+            <BookSearch
+              search={this.searchNewBooks}
+              results={this.state.searchResults}
+              addBookAndUpdate={this.addBookAndUpdate}
+            />
           </div>
         )} />
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import * as BooksAPI from './../utils/BooksAPI'
+import Book from './Book'
 
 class BookSearch extends Component {
   state = {
@@ -12,6 +14,13 @@ class BookSearch extends Component {
 
   clearQuery = () => {
     this.setState({ query: '' })
+  }
+
+  componentWillUpdate() {
+    console.log("Hello from component will update")
+    console.log("Query...", this.state.query)
+    if (this.state.query)
+      this.props.search(this.state.query)
   }
 
   render() {
@@ -35,7 +44,7 @@ class BookSearch extends Component {
               type="text"
               placeholder="Search by title or author"
               onChange={(e) => {
-                this.updateQuery(e.target.value)
+                this.props.search(e.target.value)
               }}
             />
 
@@ -44,7 +53,18 @@ class BookSearch extends Component {
         <div className="search-books-results">
           <h3>Search results component.  Hello there!</h3>
           <h6>Query is: {this.state.query}</h6>
-          <ol className="books-grid"></ol>
+          <ol className="books-grid">
+            {this.props.results.map(book => (
+              <li key={book.id}>
+                {//TODO pass the necessary props to Book component to add new book to library
+                }
+                <Book
+                  updateReadingStatus={this.props.addBookAndUpdate}
+                  book={ book }
+                  books={ this.props.books } />
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     )

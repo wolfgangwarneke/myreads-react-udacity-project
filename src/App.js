@@ -59,8 +59,11 @@ class BooksApp extends Component {
         //stateBook.shelf = status
         //this.setState({ books: books })
         console.log("Results of "+query, searchResults)
-        if (!searchResults.hasOwnProperty('error'))
+        if (!searchResults.hasOwnProperty('error')) {
           this.setState({ searchResults: searchResults })
+        } else {
+          this.setState({ searchResults: []})
+        }
       })
     }
   }

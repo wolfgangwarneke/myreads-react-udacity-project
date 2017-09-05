@@ -96,6 +96,7 @@ class BooksApp extends Component {
         <Route exact path="/search" render={() => (
           <div>
             <BookSearch
+              books={this.state.books}
               search={this.searchNewBooks}
               results={this.state.searchResults}
               addBookAndUpdate={this.addBookAndUpdate}

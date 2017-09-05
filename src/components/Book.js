@@ -5,15 +5,21 @@ class Book extends Component {
 
 
   render() {
-    const book = this.props.book
+    let book
+    if (this.props.book.shelf)
+      book = this.props.book
+    else
+      book = this.props.userBooksIDs.includes(this.props.book.id) ? this.props.books.find((b => ( b.id === this.props.book.id ) )) : this.props.book
     const thumbnail = book.hasOwnProperty('imageLinks') && book.imageLinks.hasOwnProperty('smallThumbnail') ? book.imageLinks.smallThumbnail : "TODO-replaceurl.jpg"
+
+
 
     return (
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: "url(" + thumbnail + ")" }}></div>
           <div className="book-shelf-changer">
-            <select value={book.shelf} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} >
+            <select value={book.shelf ? book.shelf : "none"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} >
               <option value="none" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>

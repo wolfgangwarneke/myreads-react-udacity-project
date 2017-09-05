@@ -24,6 +24,9 @@ class BookSearch extends Component {
   }
 
   render() {
+    const userBooksIDs = this.props.books.map((b) => b.id)
+    console.log ("User book ids...", userBooksIDs)
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -61,7 +64,9 @@ class BookSearch extends Component {
                 <Book
                   updateReadingStatus={this.props.addBookAndUpdate}
                   book={ book }
-                  books={ this.props.books } />
+                  books={ this.props.books }
+                  userBooksIDs={userBooksIDs}
+                />
               </li>
             ))}
           </ol>

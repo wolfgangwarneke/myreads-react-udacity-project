@@ -79,10 +79,19 @@ class BooksApp extends Component {
   }
 
   getBookById(id) {
-    BooksAPI.get(id).then((book)=> {
-      console.log("App getBookById response", book)
-      this.setState( { detailBook: book } )
-    })
+    const self = this
+    setTimeout(function(){
+      console.log("3 sec timesout...");
+      BooksAPI.get(id).then((book)=> {
+        console.log("App getBookById response", book)
+        self.setState( { detailBook: book } )
+      })
+    }, 3000);
+    // BooksAPI.get(id).then((book)=> {
+    //   console.log("App getBookById response", book)
+    //   self.setState( { detailBook: book } )
+    // })
+
   }
 
   render() {

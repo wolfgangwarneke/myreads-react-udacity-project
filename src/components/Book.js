@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Book extends Component {
 
@@ -28,7 +28,7 @@ class Book extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">{book.title}</div>
+        <div className="book-title"><Link to={`/book/${book.id}`}>{book.title}</Link></div>
         <div className="book-authors">
           {book.hasOwnProperty('authors') ? book.authors.map(author => (<span key={author}>{author}</span>)) : ""}
         </div>

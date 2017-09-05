@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import * as BooksAPI from './utils/BooksAPI'
 import NavBar from './components/NavBar'
 import BookShelf from './components/BookShelf'
+import BookSearch from './components/BookSearch'
 import './App.css'
 
 class BooksApp extends Component {
@@ -32,7 +33,7 @@ class BooksApp extends Component {
   updateReadingStatus(book, status) {
     const books = this.state.books
     BooksAPI.update(book, status).then(() => {
-      const stateBook = books.find((b => ( b.id == book.id ) ))
+      const stateBook = books.find((b => ( b.id === book.id ) ))
       stateBook.shelf = status
       this.setState({ books: books })
     })
@@ -51,16 +52,20 @@ class BooksApp extends Component {
         )} />
 
         <Route exact path="/" render={() => (
-          <div>
-            <h1>{this.props.tester}</h1>
-            <NavBar />
-            <BookShelf books={this.state.books} updateReadingStatus={this.updateReadingStatus} />
+          <div className="list-books">
+            <div className="list-books-title">
+              <h1>MyReads</h1>
+              <NavBar />
+            </div>
+            <div className="list-books-content">
+              <BookShelf books={this.state.books} updateReadingStatus={this.updateReadingStatus} />
+            </div>
           </div>
         )} />
 
         <Route exact path="/search" render={() => (
           <div>
-            Searching
+            <BookSearch />
           </div>
         )} />
 

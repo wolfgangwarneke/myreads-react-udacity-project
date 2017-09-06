@@ -57,9 +57,9 @@ class BookDetails extends Component {
               {book.industryIdentifiers ? book.industryIdentifiers.map((i) => (
                 <li key={i.type + "_" + i.identifier}>{i.type.replace(/[_]/g, "-")}: <span>{i.identifier}</span></li>
               )) : ""}
-              {book.averageRating ? <li>Customer rating: {book.averageRating} {
+              {book.averageRating ? <li>Customer rating: <span>{book.averageRating} {
                 book.ratingsCount ? "based on " + book.ratingsCount + " reviews" : ""
-              }</li> : ""}
+              }</span></li> : ""}
             </ul>
           </div>
           <div>

@@ -132,6 +132,18 @@ class BooksApp extends Component {
           </div>
         )} />
 
+        <Route exact path="/search/:query" render={(r) => (
+          <div>
+            <BookSearch
+              books={this.state.books}
+              search={this.searchNewBooks}
+              query={r.match.params.query}
+              results={this.state.searchResults}
+              addBookAndUpdate={this.addBookAndUpdate}
+            />
+          </div>
+        )} />
+
         <Route path="/book/:id" render={(r) => (
           <div>
             <div className="list-books-title">

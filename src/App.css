@@ -199,7 +199,36 @@ body, .app {
   text-align: center;
 }
 
+
+.book-details-actions-menu input,
+.book-details-actions-menu label {
+  padding: 0.4em;
+  cursor: pointer;
+}
+
 .book-details-actions-menu input[type="radio"]:checked+label {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.book-details-actions-menu input:first-of-type {
+  margin-left: 0.5em;
+  opacity: .5;
+}
+
+.book-details-actions-menu input {
+  margin-left: 2em;
+  opacity: .5;
+}
+
+.book-details-details-info ul {
+  list-style: none;
+}
+
+.book-details-details-info li {
+  font-weight: bold;
+}
+
+.book-details-details-info span {
+  font-weight: normal;
 }

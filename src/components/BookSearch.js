@@ -16,6 +16,13 @@ class BookSearch extends Component {
     this.setState({ query: '' })
   }
 
+  componentDidMount() {
+    if (this.props.query) {
+      console.log("There is indeed a query prop on this component.  Book Search.  You know.")
+      this.props.search(this.props.query)
+    }
+  }
+
   componentWillUpdate() {
     console.log("Hello from component will update")
     console.log("Query...", this.state.query)
@@ -26,6 +33,7 @@ class BookSearch extends Component {
   render() {
     const userBooksIDs = this.props.books.map((b) => b.id)
     console.log ("User book ids...", userBooksIDs)
+    console.log ("Query prop...", this.props.query)
 
     return (
       <div className="search-books">

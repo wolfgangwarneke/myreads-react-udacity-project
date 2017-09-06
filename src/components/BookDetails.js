@@ -9,6 +9,10 @@ class BookDetails extends Component {
     this.props.getBookById(this.props.bookID)
   }
 
+  radioCheckedShelfComparison(book, radioShelf) {
+    return (book.shelf && book.shelf === radioShelf) ? "checked" : ""
+  }
+
   render() {
     console.log("Book details props:", this.props)
     console.log("Book details book", this.props.book)
@@ -27,10 +31,10 @@ class BookDetails extends Component {
               </h5>
               <div className="book-details-actions-menu">
                 <form>
-                  <input type="radio" name="shelf-status" id="reading-btn" value="currentlyReading" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="reading-btn"> Currently Reading</label>
-                  <input type="radio" name="shelf-status" id="would-read-btn" value="wantToRead" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="would-read-btn"> Want to Read</label>
-                  <input type="radio" name="shelf-status" id="read-btn" value="read" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="read-btn"> Read</label>
-                  <input type="radio" name="shelf-status" id="none-btn" value="none" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="none-btn"> None</label>
+                  <input checked={this.radioCheckedShelfComparison(book, "currentlyReading")} type="radio" name="shelf-status" id="reading-btn" value={"currentlyReading"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="reading-btn"> Currently Reading</label>
+                  <input checked={this.radioCheckedShelfComparison(book, "wantToRead")} type="radio" name="shelf-status" id="would-read-btn" value="wantToRead" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="would-read-btn"> Want to Read</label>
+                  <input checked={this.radioCheckedShelfComparison(book, "read")} type="radio" name="shelf-status" id="read-btn" value="read" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="read-btn"> Read</label>
+                  <input checked={this.radioCheckedShelfComparison(book, "none")} type="radio" name="shelf-status" id="none-btn" value="none" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="none-btn"> None</label>
                 </form>
               </div>
             </div>

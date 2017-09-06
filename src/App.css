@@ -199,7 +199,6 @@ body, .app {
   text-align: center;
 }
 
-
 .book-details-actions-menu input,
 .book-details-actions-menu label {
   padding: 0.4em;
@@ -231,4 +230,32 @@ body, .app {
 
 .book-details-details-info span {
   font-weight: normal;
+}
+
+@media screen and (max-width: 700px) {
+  .book-details-thumbnail {
+    display: inline-block;
+    float: right;
+    margin: 1em;
+  }
+
+  .book-details-description,
+  .book-details-description h2,
+  .book-details-description p {
+    float: none;
+  }
+
+  .book-details-description hr {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .book-details-actions-menu{
+    display: none;
+  }
+
+  .full-width-xs {
+    width: 100vw;
+  }
 }

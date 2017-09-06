@@ -25,8 +25,8 @@ class BookDetails extends Component {
         <div>
           <div className="book-details-primary">
             <div className="book-details-main-info">
-              <h1 className="center-text">{book.title}</h1>
-              <h5 className="center-text">
+              <h1 className="center-text full-width-xs">{book.title}</h1>
+              <h5 className="center-text full-width-xs">
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
               <div className="book-details-actions-menu">

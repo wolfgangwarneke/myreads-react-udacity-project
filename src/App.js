@@ -40,7 +40,7 @@ class BooksApp extends Component {
 
   updateReadingStatus(book, status) {
     const books = this.state.books
-    const stateBook = books.find((b => ( b.id === book.id ) ))
+    const stateBook = books.find((b => ( b.id === book.id ) )) || book // TO DO fix bug, not fully fixed
     BooksAPI.update(book, status).then(() => {
       if (status !== "none" && status) {
         stateBook.shelf = status

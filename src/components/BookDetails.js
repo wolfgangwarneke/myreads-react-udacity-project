@@ -19,8 +19,8 @@ class BookDetails extends Component {
       return (
         <div>
           <div className="book-details-primary">
+            <h1 className="center-text">{book.title}</h1>
             <div className="book-details-main-info">
-              <h1>{book.title}</h1>
               <h5>
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
@@ -34,12 +34,26 @@ class BookDetails extends Component {
             <h2>Description</h2>
             <p>{book.description}</p>
           </div>
-          <hr />
-          <h2>Details</h2>
+          <div className="book-details-details-info">
+            <hr />
+            <h2>Details</h2>
+            <ul>
+              <li>{book.printType}: <span>{book.pageCount ? book.pageCount + " pages" : "unknown page count"}</span></li>
+              {book.publisher ? <li>Publisher: <span>{book.publisher}</span></li> : ""}
+              {book.language ? <li>Language: <span>{book.language.toLowerCase() === "en" ? "English" : book.language}</span></li> : ""}
+              {book.industryIdentifiers ? book.industryIdentifiers.map((i) => (
+                <li key={i.type + "_" + i.identifier}>{i.type.replace(/[_]/g, "-")}: <span>{i.identifier}</span></li>
+              )) : ""}
+              {book.averageRating ? <li>Customer rating: {book.averageRating} {
+                book.ratingsCount ? "based on " + book.ratingsCount + " reviews" : ""
+              }</li> : ""}
+            </ul>
+          </div>
           <div>
+            <hr />
             <span>More about </span>
             {titleTerms.map((term) => (
-              <Link to="/search" key={term}>{term}</Link>
+              <Link to="/search" className="search-term-button" key={term}>{term}</Link>
             ))}
           </div>
         </div>

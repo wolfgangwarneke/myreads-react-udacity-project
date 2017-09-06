@@ -128,11 +128,17 @@ class BooksApp extends Component {
         )} />
 
         <Route path="/book/:id" render={(r) => (
-          <BookDetails
-            bookID={r.match.params.id}
-            book={this.state.detailBook}
-            getBookById={this.getBookById}
-          />
+          <div>
+            <div className="list-books-title">
+              <h1>MyReads</h1>
+              <NavBar />
+            </div>
+            <BookDetails
+              bookID={r.match.params.id}
+              book={this.state.detailBook}
+              getBookById={this.getBookById}
+            />
+          </div>
         )} />
 
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Book from './Book'
 
 class BookDetails extends Component {
   componentDidMount() {
@@ -19,14 +20,14 @@ class BookDetails extends Component {
       return (
         <div>
           <div className="book-details-primary">
-            <h1 className="center-text">{book.title}</h1>
             <div className="book-details-main-info">
+              <h1 className="center-text">{book.title}</h1>
               <h5>
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
             </div>
             <div className="book-details-thumbnail">
-              <img src={book.imageLinks.thumbnail} />
+              <Book book={book} />
             </div>
           </div>
           <div className="book-details-description">

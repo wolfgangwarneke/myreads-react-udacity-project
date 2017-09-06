@@ -17,7 +17,9 @@ class BookShelf extends Component {
           <div className="bookshelf-books">
             <ol className="books-grid">
               {booksCurrentlyReading.map(book => (
-                <li key={book.id}><Book updateReadingStatus={this.props.updateReadingStatus} book={ book } books={ this.props.books } /></li>
+                <li key={book.id}>
+                  <Book updateReadingStatus={this.props.updateReadingStatus} book={ book } books={ this.props.books } />
+                </li>
               ))}
             </ol>
           </div>

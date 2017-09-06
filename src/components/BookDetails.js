@@ -66,7 +66,7 @@ class BookDetails extends Component {
             <hr />
             <span>More about </span>
             {titleTerms.map((term) => (
-              <Link to="/search" className="search-term-button" key={term}>{term}</Link>
+              <Link to={"/search/"+term} className="search-term-button" key={term}>{term}</Link>
             ))}
           </div>
         </div>

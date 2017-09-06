@@ -40,13 +40,18 @@ class BooksApp extends Component {
 
   updateReadingStatus(book, status) {
     const books = this.state.books
+    const stateBook = books.find((b => ( b.id === book.id ) ))
     BooksAPI.update(book, status).then(() => {
       if (status !== "none" && status) {
-        const stateBook = books.find((b => ( b.id === book.id ) ))
         stateBook.shelf = status
         this.setState({ books: books })
+        if (stateBook.id === this.state.detailBook.id)
+          this.setState({ detailBook: stateBook })
       } else {
         this.setState({ books: books.filter((b) => ( b.id !== book.id ) ) })
+        if (stateBook.id === this.state.detailBook.id)
+          stateBook.shelf = status
+          this.setState({ detailBook: stateBook })
       }
     })
   }
@@ -137,6 +142,7 @@ class BooksApp extends Component {
               bookID={r.match.params.id}
               book={this.state.detailBook}
               getBookById={this.getBookById}
+              updateReadingStatus={this.updateReadingStatus}
             />
           </div>
         )} />

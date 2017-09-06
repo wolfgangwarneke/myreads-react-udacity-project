@@ -25,9 +25,17 @@ class BookDetails extends Component {
               <h5>
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
+              <div className="book-details-actions-menu">
+                <form>
+                  <input type="radio" name="shelf-status" id="reading-btn" value="currentlyReading" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="reading-btn"> Currently Reading</label>
+                  <input type="radio" name="shelf-status" id="would-read-btn" value="wantToRead" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="would-read-btn"> Want to Read</label>
+                  <input type="radio" name="shelf-status" id="read-btn" value="read" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="read-btn"> Read</label>
+                  <input type="radio" name="shelf-status" id="none-btn" value="none" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="none-btn"> None</label>
+                </form>
+              </div>
             </div>
             <div className="book-details-thumbnail">
-              <Book book={book} />
+              <Book book={book} updateReadingStatus={this.props.updateReadingStatus} />
             </div>
           </div>
           <div className="book-details-description">

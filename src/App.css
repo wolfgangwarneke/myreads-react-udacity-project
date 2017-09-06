@@ -172,3 +172,18 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+.book-details-main-info {
+  display: inline-block;
+  margin: auto 1em auto;
+}
+
+.book-details-thumbnail {
+  display: inline-block;
+  float: left;
+  margin: 1em;
+}
+
+.book-details-description {
+  clear: left;
+}

@@ -198,3 +198,8 @@ body, .app {
 .center-text {
   text-align: center;
 }
+
+.book-details-actions-menu input[type="radio"]:checked+label {
+  font-weight: bold;
+  text-decoration: underline;
+}

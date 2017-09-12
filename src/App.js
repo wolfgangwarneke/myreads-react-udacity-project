@@ -45,7 +45,7 @@ class BooksApp extends Component {
       if (status !== "none" && status) {
         stateBook.shelf = status
         this.setState({ books: books })
-        if (stateBook.id === this.state.detailBook.id)
+        if (this.state.detailBook && stateBook.id === this.state.detailBook.id)
           this.setState({ detailBook: stateBook })
       } else {
         this.setState({ books: books.filter((b) => ( b.id !== book.id ) ) })

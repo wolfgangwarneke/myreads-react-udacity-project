@@ -18,7 +18,7 @@ class BookDetails extends Component {
     console.log("Book details book", this.props.book)
     const book = this.props.book
     if (book && book.id === this.props.bookID) {
-      const titleTerms = book.title.match(/\S+/g) || []
+      const titleTerms = Array.from(new Set(book.title.match(/\S+/g))) || []
       console.log("Title terms...", titleTerms)
 
       return (
@@ -27,7 +27,7 @@ class BookDetails extends Component {
             <div className="book-details-main-info">
               <h1 className="center-text full-width-xs">{book.title}</h1>
               <h5 className="center-text full-width-xs">
-                {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
+                {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}<Link to={"/search/"+author} className="search-term-button" key={author.trim()}>{author}</Link>{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
               <div className="book-details-actions-menu">
                 <form>

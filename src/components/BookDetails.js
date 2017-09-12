@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Book from './Book'
+import Star from './Star'
+import FiveStar from './FiveStar'
+import fiveStar from './../icons/five-star.svg'
 
 class BookDetails extends Component {
   componentDidMount() {
@@ -60,7 +63,11 @@ class BookDetails extends Component {
               {book.averageRating ? <li>Customer rating: <span>{book.averageRating} {
                 book.ratingsCount ? "based on " + book.ratingsCount + " reviews" : ""
               }</span></li> : ""}
+              <li><div className="star"></div></li>
             </ul>
+          </div>
+          <div>
+            <Star fillPercent={60} />
           </div>
           <div>
             <hr />

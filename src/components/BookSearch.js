@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import * as BooksAPI from './../utils/BooksAPI'
 import Book from './Book'
 
@@ -49,6 +49,12 @@ class BookSearch extends Component {
               placeholder="Search by title or author"
               onChange={(e) => {
                 this.props.search(e.target.value)
+              }}
+              onKeyPress={(e) => {
+                console.log(this, e)
+                if(e.key == 'Enter') {
+                  this.props.history.push('/search/' + e.target.value)
+                }
               }}
             />
 

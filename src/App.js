@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import * as BooksAPI from './utils/BooksAPI'
 import NavBar from './components/NavBar'
 import BookShelf from './components/BookShelf'
@@ -121,13 +121,14 @@ class BooksApp extends Component {
           </div>
         )} />
 
-        <Route exact path="/search" render={() => (
+        <Route exact path="/search" render={({history}) => (
           <div>
             <BookSearch
               books={this.state.books}
               search={this.searchNewBooks}
               results={this.state.searchResults}
               addBookAndUpdate={this.addBookAndUpdate}
+              history={history}
             />
           </div>
         )} />
@@ -140,6 +141,7 @@ class BooksApp extends Component {
               query={r.match.params.query}
               results={this.state.searchResults}
               addBookAndUpdate={this.addBookAndUpdate}
+              history={r.history}
             />
           </div>
         )} />

@@ -26,6 +26,15 @@ body, .app {
   flex: 1;
 }
 
+.navigation ul {
+  padding: 0;
+}
+
+.navigation li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
 .bookshelf {
   padding: 0 10px 20px;
 }

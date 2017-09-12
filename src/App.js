@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import * as BooksAPI from './utils/BooksAPI'
+import PageHeader from './components/PageHeader'
 import NavBar from './components/NavBar'
 import BookShelf from './components/BookShelf'
 import BookSearch from './components/BookSearch'
@@ -28,6 +29,7 @@ class BooksApp extends Component {
     books: [],
     lastQuery: '',
     searchResults: [],
+    maxResults: 20,
     detailBook: null
   }
 
@@ -69,7 +71,9 @@ class BooksApp extends Component {
     console.log("Searching for...", query)
     const searchTerm = query.trim()
     if (searchTerm) {
-      BooksAPI.search(searchTerm, 12).then((searchResults) => {
+      console.log("MAX RESULTS!!!", this.state.maxResults)
+      // Note: BooksAPI search does not seem to respond to differing max results values
+      BooksAPI.search(searchTerm, this.state.maxResults).then((searchResults) => {
         //const stateBook = books.find((b => ( b.id === book.id ) ))
         //stateBook.shelf = status
         //this.setState({ books: books })
@@ -111,10 +115,7 @@ class BooksApp extends Component {
 
         <Route exact path="/" render={() => (
           <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-              <NavBar />
-            </div>
+            <PageHeader test={"this is home..."} />
             <div className="list-books-content">
               <BookShelf books={this.state.books} updateReadingStatus={this.updateReadingStatus} />
             </div>
@@ -148,10 +149,7 @@ class BooksApp extends Component {
 
         <Route path="/book/:id" render={(r) => (
           <div>
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-              <NavBar />
-            </div>
+            <PageHeader test={"testing, testing, 123, testing..."} />
             <BookDetails
               bookID={r.match.params.id}
               book={this.state.detailBook}

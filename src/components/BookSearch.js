@@ -29,7 +29,7 @@ class BookSearch extends Component {
     console.log ("Query prop...", this.props.query)
 
     return (
-      <div className="search-books">
+      <div className="search-books sticky-wrap">
         <div className="search-books-bar">
         <Link
           to="/"

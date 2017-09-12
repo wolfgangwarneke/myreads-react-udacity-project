@@ -242,6 +242,11 @@ body, .app {
   border-top: 4px solid #ffe049;
 }
 
+/* for sticky footer when few or no search results */
+.sticky-wrap {
+  min-height: calc(100vh - 2em);
+}
+
 
 @media screen and (max-width: 700px) {
   .book-details-thumbnail {

@@ -235,7 +235,11 @@ body, .app {
 /* user book from BookSearch */
 .userBook .book-title,
 .userBook .book-authors {
-  background-color: #dde;
+  background-color: rgba(240, 240, 255, 0.8);
+}
+
+.userBook .book-cover {
+  border-top: 4px solid #ffe049;
 }
 
 

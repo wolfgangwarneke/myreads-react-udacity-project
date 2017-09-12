@@ -115,7 +115,7 @@ class BooksApp extends Component {
 
         <Route exact path="/" render={() => (
           <div className="list-books">
-            <PageHeader test={"this is home..."} />
+            <PageHeader />
             <div className="list-books-content">
               <BookShelf books={this.state.books} updateReadingStatus={this.updateReadingStatus} />
             </div>
@@ -127,6 +127,7 @@ class BooksApp extends Component {
             <BookSearch
               books={this.state.books}
               search={this.searchNewBooks}
+              query={this.state.lastQuery}
               results={this.state.searchResults}
               addBookAndUpdate={this.addBookAndUpdate}
               history={history}
@@ -149,7 +150,7 @@ class BooksApp extends Component {
 
         <Route path="/book/:id" render={(r) => (
           <div>
-            <PageHeader test={"testing, testing, 123, testing..."} />
+            <PageHeader />
             <BookDetails
               bookID={r.match.params.id}
               book={this.state.detailBook}

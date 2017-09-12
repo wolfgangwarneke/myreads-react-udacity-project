@@ -19,6 +19,7 @@ class BookSearch extends Component {
   componentDidMount() {
     if (this.props.query) {
       console.log("There is indeed a query prop on this component.  Book Search.  You know.")
+      this.setState("query", this.props.query)
       this.props.search(this.props.query)
     }
   }
@@ -61,23 +62,22 @@ class BookSearch extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <h3>Search results component.  Hello there!</h3>
-          <h6>Query is: {this.state.query}</h6>
-          <ol className="books-grid">
-            {this.props.results.map(book => (
-              <li key={book.id} className={userBooksIDs.includes(book.id) ? "userBook" : "notUserBook"}>
-                {//TODO pass the necessary props to Book component to add new book to library
-                }
-                <Book
-                  updateReadingStatus={this.props.addBookAndUpdate}
-                  book={ book }
-                  books={ this.props.books }
-                  userBooksIDs={userBooksIDs}
-                  inLibrary={userBooksIDs.includes(book.id)}
-                />
-              </li>
-            ))}
-          </ol>
+          {this.props.results.length > 0 ?
+            (<ol className="books-grid">
+              {this.props.results.map(book => (
+                <li key={book.id} className={userBooksIDs.includes(book.id) ? "userBook" : "notUserBook"}>
+                  {//TODO pass the necessary props to Book component to add new book to library
+                  }
+                  <Book
+                    updateReadingStatus={this.props.addBookAndUpdate}
+                    book={ book }
+                    books={ this.props.books }
+                    userBooksIDs={userBooksIDs}
+                    inLibrary={userBooksIDs.includes(book.id)}
+                  />
+                </li>
+              ))}
+            </ol>) : <h3>No results yet</h3>}
         </div>
       </div>
     )

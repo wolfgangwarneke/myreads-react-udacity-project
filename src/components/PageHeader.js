@@ -6,7 +6,6 @@ const PageHeader = (props) => {
   return (
     <div className="list-books-title">
       <h1><Link to="/">MyReads</Link></h1>
-      <h4>{props.test}</h4>
       <NavBar />
     </div>
   )

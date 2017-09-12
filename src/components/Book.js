@@ -30,7 +30,7 @@ class Book extends Component {
         </div>
         <div className="book-title"><Link to={`/book/${book.id}`}>{book.title}</Link></div>
         <div className="book-authors">
-          {book.hasOwnProperty('authors') ? book.authors.map(author => (<span key={author}>{author}</span>)) : ""}
+          {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
         </div>
       </div>
     )

@@ -23,13 +23,6 @@ class BookSearch extends Component {
     }
   }
 
-  componentWillUpdate() {
-    console.log("Hello from component will update")
-    console.log("Query...", this.state.query)
-    if (this.state.query)
-      this.props.search(this.state.query)
-  }
-
   render() {
     const userBooksIDs = this.props.books.map((b) => b.id)
     console.log ("User book ids...", userBooksIDs)

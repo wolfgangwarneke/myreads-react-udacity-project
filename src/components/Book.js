@@ -17,7 +17,7 @@ class Book extends Component {
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: "url(" + thumbnail + ")" }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: "url(" + thumbnail + ")", backgroundRepeat: "no-repeat", backgroundPosition: "center center", backgroundSize: "contain" }}></div>
           <div className="book-shelf-changer">
             <select value={book.hasOwnProperty('shelf') ? book.shelf : "none"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} >
               <option disabled>Move to...</option>

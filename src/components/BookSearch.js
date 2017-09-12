@@ -59,7 +59,7 @@ class BookSearch extends Component {
           <h6>Query is: {this.state.query}</h6>
           <ol className="books-grid">
             {this.props.results.map(book => (
-              <li key={book.id}>
+              <li key={book.id} className={userBooksIDs.includes(book.id) ? "userBook" : "notUserBook"}>
                 {//TODO pass the necessary props to Book component to add new book to library
                 }
                 <Book
@@ -67,6 +67,7 @@ class BookSearch extends Component {
                   book={ book }
                   books={ this.props.books }
                   userBooksIDs={userBooksIDs}
+                  inLibrary={userBooksIDs.includes(book.id)}
                 />
               </li>
             ))}

@@ -32,6 +32,7 @@ class Book extends Component {
         <div className="book-authors">
           {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
         </div>
+        {this.props.inLibrary ? <div className="book-in-libray"><em>(currently in library)</em></div> : ""}
       </div>
     )
   }

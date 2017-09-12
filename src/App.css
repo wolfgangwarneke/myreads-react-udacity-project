@@ -232,6 +232,13 @@ body, .app {
   font-weight: normal;
 }
 
+/* user book from BookSearch */
+.userBook .book-title,
+.userBook .book-authors {
+  background-color: #dde;
+}
+
+
 @media screen and (max-width: 700px) {
   .book-details-thumbnail {
     display: inline-block;

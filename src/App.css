@@ -12,7 +12,12 @@ body, .app {
 
 a:link,
 a:visited {
-  color: black;
+  color: #000;
+  text-decoration-color: #888;
+}
+
+a:hover {
+  color: #e44e4e;
 }
 
 /* main page */
@@ -209,6 +214,17 @@ a:visited {
   margin: auto 1em auto;
 }
 
+.book-details-main-info h5 {
+  font-weight: normal;
+  color: #2e332f;
+}
+
+a.details-author {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.24em;
+}
+
 .book-details-thumbnail {
   display: inline-block;
   float: left;
@@ -237,7 +253,7 @@ a.search-term-button {
   text-decoration: none;
   border-radius: 7%;
   background-color: #2e332f;
-  color: #ffdb99;
+  color: #f9dca7;
 }
 
 .center-text {
@@ -289,11 +305,16 @@ a.search-term-button {
 /* user book from BookSearch */
 .userBook .book-title,
 .userBook .book-authors {
-  background-color: rgba(240, 240, 255, 0.8);
+  background-color: rgb(239, 225, 126);
 }
 
 .userBook .book-cover {
-  border-top: 4px solid #ffe049;
+  border-top: 4px solid #e0bc0c;
+}
+
+.book-in-library {
+  font-size: 0.7em;
+  padding-left: 0.3em;
 }
 
 /* for sticky footer when few or no search results */

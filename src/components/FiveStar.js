@@ -12,11 +12,9 @@ const FiveStar = (props) => {
   starVals.push(rating)
   console.log(starVals)
  return (
-     <div>
-      {starVals.map((value) => (
-        <div>
-        <div>{value}</div>
-        <Star fillPercent={value*100} /></div>
+     <div className="star-container">
+      {starVals.map((value, idx) => (
+        <Star fillPercent={value*100} id={idx} key={"star"+idx} />
       ))}
      </div>
  )

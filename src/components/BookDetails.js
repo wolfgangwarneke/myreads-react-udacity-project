@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Book from './Book'
-import Star from './Star'
 import FiveStar from './FiveStar'
-import fiveStar from './../icons/five-star.svg'
 
 class BookDetails extends Component {
   componentDidMount() {
@@ -32,6 +30,9 @@ class BookDetails extends Component {
               <h5 className="center-text full-width-xs">
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}<Link to={"/search/"+author} className="search-term-button" key={author.trim()}>{author}</Link>{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
+              <div>
+                <FiveStar rating={book.averageRating} />
+              </div>
               <div className="book-details-actions-menu">
                 <form>
                   <input checked={this.radioCheckedShelfComparison(book, "currentlyReading")} type="radio" name="shelf-status" id="reading-btn" value={"currentlyReading"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="reading-btn"> Currently Reading</label>
@@ -60,14 +61,11 @@ class BookDetails extends Component {
               {book.industryIdentifiers ? book.industryIdentifiers.map((i) => (
                 <li key={i.type + "_" + i.identifier}>{i.type.replace(/[_]/g, "-")}: <span>{i.identifier}</span></li>
               )) : ""}
-              {book.averageRating ? <li>Customer rating: <span>{book.averageRating} {
+              {book.averageRating ? <li>Customer rating: <FiveStar rating={book.averageRating} /><span>{book.averageRating} {
                 book.ratingsCount ? "based on " + book.ratingsCount + " reviews" : ""
               }</span></li> : ""}
               <li><div className="star"></div></li>
             </ul>
-          </div>
-          <div>
-            <Star fillPercent={60} />
           </div>
           <div>
             <hr />

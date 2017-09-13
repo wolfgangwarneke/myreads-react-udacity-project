@@ -30,9 +30,11 @@ class BookDetails extends Component {
               <h5 className="center-text full-width-xs">
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}<Link to={"/search/"+author} className="search-term-button" key={author.trim()}>{author}</Link>{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
-              <div>
-                <FiveStar rating={book.averageRating} />
-              </div>
+              {book.averageRating ? (
+                <div>
+                  <FiveStar rating={book.averageRating} />
+                </div>
+              ) : ""}
               <div className="book-details-actions-menu">
                 <form>
                   <input checked={this.radioCheckedShelfComparison(book, "currentlyReading")} type="radio" name="shelf-status" id="reading-btn" value={"currentlyReading"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="reading-btn"> Currently Reading</label>

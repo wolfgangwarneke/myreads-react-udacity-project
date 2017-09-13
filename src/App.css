@@ -301,6 +301,10 @@ footer {
   height: auto;
 }
 
+.star-svg {
+  filter: drop-shadow( -1px 1px 3px #888 );
+}
+
 @media screen and (max-width: 1000px) {
   .book-details-main-info h1 {
     margin-bottom: 0;

@@ -3,7 +3,7 @@ import React from 'react'
 const Star = (props) => {
   const fillPercent = props.fillPercent || 100
  return (
-   <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+   <svg className="star-svg" width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
      <defs>
         {fillPercent < 100 ? (
           <linearGradient id="Gradient2" x1="0" x2="1" y1="0" y2="0">

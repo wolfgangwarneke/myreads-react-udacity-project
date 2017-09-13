@@ -5,8 +5,6 @@ import FiveStar from './FiveStar'
 
 class BookDetails extends Component {
   componentDidMount() {
-    console.log("Book details mounted")
-    console.log("ID:   ", this.props.bookID)
     this.props.getBookById(this.props.bookID)
   }
 
@@ -15,8 +13,6 @@ class BookDetails extends Component {
   }
 
   render() {
-    console.log("Book details props:", this.props)
-    console.log("Book details book", this.props.book)
     const book = this.props.book
     if (book && book.id === this.props.bookID) {
       const titleTerms = Array.from(new Set(book.title.match(/\S+/g))) || []

@@ -5,7 +5,9 @@ import NavBar from './NavBar'
 const PageHeader = (props) => {
   return (
     <div className="list-books-title">
-      <h1><Link to="/">MyReads</Link></h1>
+      <h1>
+        <Link to="/">MyReads</Link>
+      </h1>
       <NavBar />
     </div>
   )

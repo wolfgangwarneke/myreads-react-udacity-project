@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 class Book extends Component {
 
-
   render() {
     let book
     if (this.props.book.shelf)
@@ -11,8 +10,6 @@ class Book extends Component {
     else
       book = this.props.userBooksIDs.includes(this.props.book.id) ? this.props.books.find((b => ( b.id === this.props.book.id ) )) : this.props.book
     const thumbnail = book.hasOwnProperty('imageLinks') && book.imageLinks.hasOwnProperty('smallThumbnail') ? book.imageLinks.smallThumbnail : "TODO-replaceurl.jpg"
-
-
 
     return (
       <div className="book">

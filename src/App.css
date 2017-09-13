@@ -300,6 +300,7 @@ footer {
   width: 2em;
   height: auto;
 }
+
 @media screen and (max-width: 1000px) {
   .book-details-main-info h1 {
     margin-bottom: 0;
@@ -360,5 +361,16 @@ footer {
 
   .book-details-thumbnail {
     float: right;
+  }
+}
+
+/* Queries for larger screens */
+@media screen and (min-width: 900px) {
+  .book-details-main-info {
+    max-width: 70%;
+  }
+
+  .book-details-thumbnail {
+    float: left;
   }
 }

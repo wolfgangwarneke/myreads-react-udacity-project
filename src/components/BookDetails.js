@@ -66,7 +66,7 @@ class BookDetails extends Component {
               }</span></li> : ""}
             </ul>
           </div>
-          <div>
+          <div className="book-details-related">
             <hr />
             <div className="link-container">
               <span>More about </span>

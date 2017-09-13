@@ -374,3 +374,36 @@ footer {
     float: left;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .book-details-description {
+    /*clear: left;*/
+    float: right;
+    display: inline-block;
+    max-width: 65%;
+    margin-right: 5%;
+  }
+
+  .book-details-details-info {
+    display: inline-block;
+    float: left;
+    clear: left;
+    max-width: 30%;
+  }
+
+  .book-details-related {
+    clear: both;
+  }
+
+  .book-details-details-info h2 {
+    padding-left: 0.2em;
+  }
+
+  .book-details-details-info ul {
+    padding-left: 0.6em;
+  }
+
+  hr {
+    display: none;
+  }
+}

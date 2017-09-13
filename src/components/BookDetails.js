@@ -31,9 +31,7 @@ class BookDetails extends Component {
                 {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}<Link to={"/search/"+author} className="search-term-button" key={author.trim()}>{author}</Link>{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
               </h5>
               {book.averageRating ? (
-                <div>
-                  <FiveStar rating={book.averageRating} />
-                </div>
+                <FiveStar rating={book.averageRating} />
               ) : ""}
               <div className="book-details-actions-menu">
                 <form>
@@ -63,18 +61,19 @@ class BookDetails extends Component {
               {book.industryIdentifiers ? book.industryIdentifiers.map((i) => (
                 <li key={i.type + "_" + i.identifier}>{i.type.replace(/[_]/g, "-")}: <span>{i.identifier}</span></li>
               )) : ""}
-              {book.averageRating ? <li>Customer rating: <FiveStar rating={book.averageRating} /><span>{book.averageRating} {
+              {book.averageRating ? <li>Customer rating: <span>{book.averageRating} {
                 book.ratingsCount ? "based on " + book.ratingsCount + " reviews" : ""
               }</span></li> : ""}
-              <li><div className="star"></div></li>
             </ul>
           </div>
           <div>
             <hr />
-            <span>More about </span>
-            {titleTerms.map((term) => (
-              <Link to={"/search/"+term} className="search-term-button" key={term}>{term}</Link>
-            ))}
+            <div className="link-container">
+              <span>More about </span>
+              {titleTerms.map((term) => (
+                <Link to={"/search/"+term} className="search-term-button" key={term}>{term}</Link>
+              ))}
+            </div>
           </div>
         </div>
       )

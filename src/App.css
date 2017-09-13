@@ -197,7 +197,17 @@ body, .app {
   clear: left;
 }
 
+.book-details-description p {
+  padding: 0 1.4em;
+}
+
+hr + h2 {
+  padding-left: 0.6em;
+  margin-bottom: 0.4em;
+}
+
 .search-term-button {
+  display: inline-block;
   margin: 0.4em;
   padding: 0.2em;
   border: 1px solid green;
@@ -205,6 +215,10 @@ body, .app {
 }
 
 .center-text {
+  text-align: center;
+}
+
+.book-details-actions-menu {
   text-align: center;
 }
 
@@ -230,6 +244,7 @@ body, .app {
 }
 
 .book-details-details-info ul {
+  margin-top: 0;
   list-style: none;
 }
 
@@ -275,11 +290,26 @@ footer {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+.star-container {
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+}
+
 .star-container svg {
   width: 2em;
   height: auto;
-  display: inline-block;
 }
+@media screen and (max-width: 1000px) {
+  .book-details-main-info h1 {
+    margin-bottom: 0;
+  }
+
+  .book-details-main-info h5 {
+    margin: 0;
+  }
+}
+
 
 @media screen and (max-width: 700px) {
   .book-details-thumbnail {
@@ -305,6 +335,30 @@ footer {
   }
 
   .full-width-xs {
-    width: 100vw;
+    width: 100%;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 1000px) {
+  .book-details-main-info {
+    max-width: 68%;
+  }
+
+  .book-details-actions-menu input {
+    margin-left: 0;
+  }
+
+  .book-details-thumbnail {
+    float: right;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 600px) {
+  .book-details-main-info {
+    max-width: 64%;
+  }
+
+  .book-details-thumbnail {
+    float: right;
   }
 }

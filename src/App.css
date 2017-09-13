@@ -407,3 +407,9 @@ footer {
     display: none;
   }
 }
+
+@media screen and (orientation: portrait) and (min-width: 600px) and (max-width: 900px) {
+    .book-details-thumbnail {
+      float: right;
+    }
+}

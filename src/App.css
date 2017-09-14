@@ -338,9 +338,6 @@ footer {
   height: 40px;
   border-radius: 50%;
   background: #60ac5d;
-  /*background-image: url('./icons/five-star.png');
-  background-repeat: no-repeat;
-  background-position: center;*/
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
@@ -352,7 +349,7 @@ footer {
 }
 
 .star-container svg {
-  width: 2em;
+  width: 1.8em;
   height: auto;
 }
 
@@ -396,6 +393,11 @@ footer {
 
   .full-width-xs {
     width: 100%;
+  }
+
+  .star-container svg {
+    width: 1.2em;
+    height: auto;
   }
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Book from './Book'
 import FiveStar from './FiveStar'
+import PropTypes from 'prop-types'
 
 class BookDetails extends Component {
   componentDidMount() {
@@ -88,6 +89,13 @@ class BookDetails extends Component {
       )
     }
   }
+}
+
+BookDetails.propTypes = {
+  bookID: PropTypes.string.isRequired,
+  book: PropTypes.object,
+  getBookById: PropTypes.func.isRequired,
+  updateReadingStatus: PropTypes.func.isRequired
 }
 
 export default BookDetails

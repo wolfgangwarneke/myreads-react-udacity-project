@@ -24,17 +24,61 @@ class BookDetails extends Component {
             <div className="book-details-main-info">
               <h1 className="center-text full-width-xs">{book.title}</h1>
               <h5 className="center-text full-width-xs">
-                {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}<Link to={"/search/"+author} className="details-author" key={author.trim()}>{author}</Link>{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
+                {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (
+                  <span key={author}>
+                    {(index === 0) ? "by " : ""}
+                    <Link
+                      to={"/search/"+author}
+                      className="details-author"
+                      key={author.trim()}
+                    >
+                      {author}
+                    </Link>
+                    {(index+1 !== book.authors.length) ? ", " : ""}
+                  </span>
+                )) : ""}
               </h5>
               {book.averageRating ? (
                 <FiveStar rating={book.averageRating} />
               ) : ""}
               <div className="book-details-actions-menu">
                 <form>
-                  <input checked={this.radioCheckedShelfComparison(book, "currentlyReading")} type="radio" name="shelf-status" id="reading-btn" value={"currentlyReading"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="reading-btn"> Currently Reading</label>
-                  <input checked={this.radioCheckedShelfComparison(book, "wantToRead")} type="radio" name="shelf-status" id="would-read-btn" value="wantToRead" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="would-read-btn"> Want to Read</label>
-                  <input checked={this.radioCheckedShelfComparison(book, "read")} type="radio" name="shelf-status" id="read-btn" value="read" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="read-btn"> Read</label>
-                  <input checked={this.radioCheckedShelfComparison(book, "none")} type="radio" name="shelf-status" id="none-btn" value="none" onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} /><label htmlFor="none-btn"> None</label>
+                  <input
+                    checked={this.radioCheckedShelfComparison(book, "currentlyReading")}
+                    type="radio"
+                    name="shelf-status"
+                    id="reading-btn"
+                    value={"currentlyReading"}
+                    onChange={(e) => this.props.updateReadingStatus(book, e.target.value)}
+                  />
+                  <label htmlFor="reading-btn"> Currently Reading</label>
+                  <input
+                    checked={this.radioCheckedShelfComparison(book, "wantToRead")}
+                    type="radio"
+                    name="shelf-status"
+                    id="would-read-btn"
+                    value="wantToRead"
+                    onChange={(e) => this.props.updateReadingStatus(book, e.target.value)}
+                  />
+                  <label htmlFor="would-read-btn"> Want to Read</label>
+                  <input
+                    checked={this.radioCheckedShelfComparison(book, "read")}
+                    type="radio"
+                    name="shelf-status"
+                    id="read-btn"
+                    value="read"
+                    onChange={(e) => this.props.updateReadingStatus(book, e.target.value)}
+                  />
+                  <label htmlFor="read-btn"> Read</label>
+                  <input
+                    checked={this.radioCheckedShelfComparison(book, "none")}
+                    type="radio"
+                    name="shelf-status"
+                    id="none-btn"
+                    value="none"
+                    onChange={(e) => this.props.updateReadingStatus(book, e.target.value)}
+                  />
+                  <label htmlFor="none-btn"> None</label>
                 </form>
               </div>
             </div>

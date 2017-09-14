@@ -5,8 +5,12 @@ const NavBar = () => {
   return (
     <nav className="navigation">
       <ul>
-        <li><Link to="/search">Search/Add</Link></li>
-        <li><Link to="/">Bookshelf</Link></li>
+        <li>
+          <Link to="/search">Search/Add</Link>
+        </li>
+        <li>
+          <Link to="/">Bookshelf</Link>
+        </li>
       </ul>
     </nav>
   )

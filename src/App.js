@@ -99,7 +99,10 @@ class BooksApp extends Component {
           <div className="list-books">
             <PageHeader />
             <div className="list-books-content">
-              <BookShelf books={this.state.books} updateReadingStatus={this.updateReadingStatus} />
+              <BookShelf
+                books={this.state.books}
+                updateReadingStatus={this.updateReadingStatus}
+              />
             </div>
           </div>
         )} />
@@ -144,7 +147,10 @@ class BooksApp extends Component {
 
 
 
-        <footer><span className="brand-font">MyReads</span> 2017 Udacity React Nanodegree Wolfgang Warneke</footer>
+        <footer>
+          <span className="brand-font">MyReads</span>
+          2017 Udacity React Nanodegree Wolfgang Warneke
+        </footer>
       </div>
     )
   }

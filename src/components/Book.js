@@ -15,9 +15,21 @@ class Book extends Component {
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: "url(" + thumbnail + ")", backgroundRepeat: "no-repeat", backgroundPosition: "center center", backgroundSize: "contain" }}></div>
+          <div
+            className="book-cover"
+            style={{
+              width: 128,
+              height: 193,
+              backgroundImage: "url(" + thumbnail + ")",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center center",
+              backgroundSize: "contain" }}
+          ></div>
           <div className="book-shelf-changer">
-            <select value={book.hasOwnProperty('shelf') ? book.shelf : "none"} onChange={(e) => this.props.updateReadingStatus(book, e.target.value)} >
+            <select
+              value={book.hasOwnProperty('shelf') ? book.shelf : "none"}
+              onChange={(e) => this.props.updateReadingStatus(book, e.target.value)}
+            >
               <option disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
@@ -26,7 +38,9 @@ class Book extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title"><Link to={`/book/${book.id}`}>{book.title}</Link></div>
+        <div className="book-title">
+          <Link to={`/book/${book.id}`}>{book.title}</Link>
+        </div>
         <div className="book-authors">
           {book.hasOwnProperty('authors') ? book.authors.map((author, index) => (<span key={author}>{(index === 0) ? "by " : ""}{author}{(index+1 !== book.authors.length) ? ", " : ""}</span>)) : ""}
         </div>

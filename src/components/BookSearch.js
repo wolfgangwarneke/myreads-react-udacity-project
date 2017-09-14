@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 class BookSearch extends Component {
   componentDidMount() {
     if (this.props.query) {
+      const searchInput = document.getElementById("search-input")
+      searchInput.value = this.props.query
       this.props.search(this.props.query)
     }
   }
@@ -22,6 +24,7 @@ class BookSearch extends Component {
           >Close</Link>
           <div className="search-books-input-wrapper">
             <input
+              id="search-input"
               type="text"
               placeholder="Search by title or author"
               onChange={(e) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import imageNotFound from '../icons/not-found.jpg';
 
 class Book extends Component {
 
@@ -11,7 +12,7 @@ class Book extends Component {
     } else {
       book = this.props.userBooksIDs.includes(this.props.book.id) ? this.props.books.find((b => ( b.id === this.props.book.id ) )) : this.props.book
     }
-    const thumbnail = book.hasOwnProperty('imageLinks') && book.imageLinks.hasOwnProperty('smallThumbnail') ? book.imageLinks.smallThumbnail : "TODO-replaceurl.jpg"
+    const thumbnail = book.hasOwnProperty('imageLinks') && book.imageLinks.hasOwnProperty('smallThumbnail') ? book.imageLinks.smallThumbnail : imageNotFound
 
     return (
       <div className="book">

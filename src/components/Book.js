@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Book extends Component {
 
@@ -33,6 +34,14 @@ class Book extends Component {
       </div>
     )
   }
+}
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  books: PropTypes.array,
+  updateReadingStatus: PropTypes.func.isRequired,
+  userBooksIDs: PropTypes.array,
+  inLibrary: PropTypes.bool
 }
 
 export default Book

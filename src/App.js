@@ -19,12 +19,6 @@ class BooksApp extends Component {
   }
 
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
     showSearchPage: false,
     books: [],
     lastQuery: '',
@@ -35,7 +29,6 @@ class BooksApp extends Component {
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      console.log(books)
       this.setState({ books })
     })
   }
@@ -68,16 +61,13 @@ class BooksApp extends Component {
   }
 
   searchNewBooks(query) {
-    console.log("Searching for...", query)
     const searchTerm = query.trim()
     if (searchTerm) {
-      console.log("MAX RESULTS!!!", this.state.maxResults)
       // Note: BooksAPI search does not seem to respond to differing max results values
       BooksAPI.search(searchTerm, this.state.maxResults).then((searchResults) => {
         //const stateBook = books.find((b => ( b.id === book.id ) ))
         //stateBook.shelf = status
         //this.setState({ books: books })
-        console.log("Results of "+query, searchResults)
         if (!searchResults.hasOwnProperty('error')) {
           this.setState({ searchResults: searchResults })
         } else {
@@ -97,7 +87,6 @@ class BooksApp extends Component {
     //   })
     // }, 3000);
     BooksAPI.get(id).then((book)=> {
-      console.log("App getBookById response", book)
       self.setState( { detailBook: book } )
     })
 
@@ -106,13 +95,6 @@ class BooksApp extends Component {
   render() {
     return (
       <div className="app">
-        {/*this is a TESTING route*/}
-        <Route exact path="/tester" render={() => (
-          <div>
-            <h1>{this.props.tester}</h1>
-          </div>
-        )} />
-
         <Route exact path="/" render={() => (
           <div className="list-books">
             <PageHeader />

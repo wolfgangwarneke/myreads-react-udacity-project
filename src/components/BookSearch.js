@@ -5,21 +5,8 @@ import Book from './Book'
 import PropTypes from 'prop-types'
 
 class BookSearch extends Component {
-  state = {
-    query: ''
-  }
-
-  updateQuery = (query) => {
-    this.setState({ query: query })
-  }
-
-  clearQuery = () => {
-    this.setState({ query: '' })
-  }
-
   componentDidMount() {
     if (this.props.query) {
-      this.setState("query", this.props.query)
       this.props.search(this.props.query)
     }
   }
@@ -81,7 +68,7 @@ BookSearch.propTypes = {
   query: PropTypes.string,
   results: PropTypes.array,
   addBookAndUpdate: PropTypes.func,
-  history: PropTypes.array
+  history: PropTypes.object
 }
 
 export default BookSearch

@@ -3,7 +3,6 @@ import Star from "./Star"
 import PropTypes from 'prop-types'
 
 const FiveStar = (props) => {
-  console.log(props.rating)
   let rating = props.rating
   const starVals = []
   while (rating > 1) {
@@ -11,14 +10,13 @@ const FiveStar = (props) => {
     rating--
   }
   starVals.push(rating)
-  console.log(starVals)
- return (
+  return (
      <div className="star-container">
       {starVals.map((value, idx) => (
         <Star fillPercent={value*100} id={idx} key={"star"+idx} />
       ))}
      </div>
- )
+  )
 }
 
 FiveStar.propTypes = {

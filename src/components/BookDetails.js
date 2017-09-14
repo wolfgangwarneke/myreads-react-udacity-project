@@ -17,7 +17,6 @@ class BookDetails extends Component {
     const book = this.props.book
     if (book && book.id === this.props.bookID) {
       const titleTerms = Array.from(new Set(book.title.match(/\S+/g))) || []
-      console.log("Title terms...", titleTerms)
 
       return (
         <div>

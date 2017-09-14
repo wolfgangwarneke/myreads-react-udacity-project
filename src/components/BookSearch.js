@@ -27,6 +27,7 @@ class BookSearch extends Component {
               id="search-input"
               type="text"
               placeholder="Search by title or author"
+              onClick={(e) => e.target.value = ""}
               onChange={(e) => {
                 this.props.search(e.target.value)
               }}

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Star = (props) => {
   const fillPercent = props.fillPercent || 100
@@ -27,6 +28,11 @@ const Star = (props) => {
     </g>
    </svg>
  )
+}
+
+Star.propTypes = {
+  fillPercent: PropTypes.number,
+  id: PropTypes.number
 }
 
 export default Star

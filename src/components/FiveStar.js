@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Star from "./Star"
+import PropTypes from 'prop-types'
 
 const FiveStar = (props) => {
   console.log(props.rating)
@@ -18,6 +19,10 @@ const FiveStar = (props) => {
       ))}
      </div>
  )
+}
+
+FiveStar.propTypes = {
+  rating: PropTypes.number.isRequired
 }
 
 export default FiveStar

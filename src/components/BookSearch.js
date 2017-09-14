@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import * as BooksAPI from './../utils/BooksAPI'
+import { Link } from 'react-router-dom'
 import Book from './Book'
 import PropTypes from 'prop-types'
 
@@ -29,7 +28,7 @@ class BookSearch extends Component {
                 this.props.search(e.target.value)
               }}
               onKeyPress={(e) => {
-                if(e.key == 'Enter') {
+                if(e.key === 'Enter') {
                   this.props.history.push('/search/' + e.target.value)
                 }
               }}

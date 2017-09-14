@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import * as BooksAPI from './../utils/BooksAPI'
 import Book from './Book'
+import PropTypes from 'prop-types'
 
 class BookSearch extends Component {
   state = {
@@ -72,6 +73,15 @@ class BookSearch extends Component {
       </div>
     )
   }
+}
+
+BookSearch.propTypes = {
+  books: PropTypes.array,
+  search: PropTypes.func,
+  query: PropTypes.string,
+  results: PropTypes.array,
+  addBookAndUpdate: PropTypes.func,
+  history: PropTypes.array
 }
 
 export default BookSearch

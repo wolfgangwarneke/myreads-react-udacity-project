@@ -139,7 +139,7 @@ class BooksApp extends Component {
               bookID={r.match.params.id}
               book={this.state.detailBook}
               getBookById={this.getBookById}
-              updateReadingStatus={this.updateReadingStatus}
+              updateReadingStatus={this.addBookAndUpdate}
             />
           </div>
         )} />

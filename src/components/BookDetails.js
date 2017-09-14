@@ -5,6 +5,9 @@ import FiveStar from './FiveStar'
 import PropTypes from 'prop-types'
 
 class BookDetails extends Component {
+  // terms to remove from related terms links
+  filterTerms = ["the", "and", "you", "-", ":", "a", "&", "an","it", "by", "is", "or", "of", "on", "in", "for"] // must be lowercase
+
   componentDidMount() {
     this.props.getBookById(this.props.bookID)
   }
@@ -16,7 +19,9 @@ class BookDetails extends Component {
   render() {
     const book = this.props.book
     if (book && book.id === this.props.bookID) {
-      const titleTerms = Array.from(new Set(book.title.match(/\S+/g))) || []
+      const titleTerms = Array.from(new Set(book.title.match(/\S+/g)))
+                          .filter((word) => !this.filterTerms.includes(word.toLowerCase()) )
+                         || []
 
       return (
         <div>

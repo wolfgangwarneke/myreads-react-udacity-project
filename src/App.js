@@ -34,7 +34,7 @@ class BooksApp extends Component {
 
   updateReadingStatus(book, status) {
     const books = this.state.books
-    const stateBook = books.find((b => ( b.id === book.id ) )) || book // TO DO fix bug, not fully fixed
+    const stateBook = books.find((b => ( b.id === book.id ) )) || book
     BooksAPI.update(book, status).then(() => {
       if (status !== "none" && status) {
         stateBook.shelf = status
@@ -64,9 +64,6 @@ class BooksApp extends Component {
     if (searchTerm) {
       // Note: BooksAPI search does not seem to respond to differing max results values
       BooksAPI.search(searchTerm, this.state.maxResults).then((searchResults) => {
-        //const stateBook = books.find((b => ( b.id === book.id ) ))
-        //stateBook.shelf = status
-        //this.setState({ books: books })
         if (!searchResults.hasOwnProperty('error')) {
           this.setState({ searchResults: searchResults })
         } else {
@@ -78,13 +75,6 @@ class BooksApp extends Component {
 
   getBookById(id) {
     const self = this
-    // setTimeout(function(){
-    //   console.log("3 sec timesout...");
-    //   BooksAPI.get(id).then((book)=> {
-    //     console.log("App getBookById response", book)
-    //     self.setState( { detailBook: book } )
-    //   })
-    // }, 3000);
     BooksAPI.get(id).then((book)=> {
       self.setState( { detailBook: book } )
     })

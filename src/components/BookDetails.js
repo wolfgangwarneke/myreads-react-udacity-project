@@ -17,8 +17,11 @@ class BookDetails extends Component {
   }
 
   render() {
+    // TODO: fix bug where loading message shows for invalid book IDs in URL, 
+    // where it should show 'book not found' message instead
     const book = this.props.book
     if (book && book.id === this.props.bookID) {
+      //get each unique, meaningful word from the title
       const titleTerms = Array.from(new Set(book.title.match(/\S+/g)))
                           .filter((word) => !this.filterTerms.includes(word.toLowerCase()) )
                          || []

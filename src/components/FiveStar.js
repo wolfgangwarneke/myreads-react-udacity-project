@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const FiveStar = (props) => {
   let rating = props.rating
-  const starVals = []
+  const starVals = [] // create an array of star-fill values e.g. 4.6 will become [1, 1, 1, 1, 0.6]
   while (rating > 1) {
     starVals.push(1)
     rating--

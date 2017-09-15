@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Star = (props) => {
-  const fillPercent = props.fillPercent || 100
+  const fillPercent = props.fillPercent || 100 //assume full fill if no fillPercent property is provided
   return (
     <svg className="star-svg" width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
       <defs>
+        {/* Only incude gradient if needed otherwise fill will be all yellow. */}
         {fillPercent < 100 ? (
           <linearGradient id="Gradient2" x1="0" x2="1" y1="0" y2="0">
             <stop offset="0%" stopColor="yellow" />

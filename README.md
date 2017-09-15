@@ -6,7 +6,7 @@
 
 ## About this MyReads project
 
-This is my submission for React Fundamentals course project.
+This is my submission for the React Fundamentals course project. It is a reading list app which uses a limited sandbox API for its book data. A user may add book to their current reading list, a reading wish list, or a list of books already read. A user may click on a book for more information and search for new books to add.
 
 ## Getting Started
 
@@ -21,10 +21,11 @@ If you would like to check out this project for grading purposes or otherwise...
 ```
 - NPM
 ```
+If NPM is not installed, please check out this [get NPM](https://www.npmjs.com/get-npm) page and follow their instructions.
 
 ### Features
 
-Here are some extra features beyond the scope of the original rubric.
+Here are some extra features beyond the scope of the original rubric:
 
 * Individual book details view
 * Search by author or related terms from details view
@@ -63,5 +64,5 @@ SOFTWARE.
 
 ## Acknowledgments
 Thank you...
-* Udacity
-* React Training
+* [Udacity](https://www.udacity.com/)
+* [React Training](https://www.reacttraining.com/)

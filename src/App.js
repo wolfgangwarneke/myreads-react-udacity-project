@@ -148,7 +148,8 @@ class BooksApp extends Component {
 
         <footer>
           <span className="brand-font">MyReads</span>
-          2017 Udacity React Nanodegree Wolfgang Warneke
+          2017 Udacity React Nanodegree
+          <p>&copy; 2017 Wolfgang Warneke under the MIT License</p>
         </footer>
       </div>
     )

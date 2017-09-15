@@ -18,6 +18,7 @@ class Book extends Component {
       <div className="book">
         <div className="book-top">
           <div
+            title={book.title}
             className="book-cover"
             style={{
               width: 128,

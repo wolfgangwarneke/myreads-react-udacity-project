@@ -44,7 +44,7 @@ class BookShelf extends Component {
           </div>
         </div>
         <div className="bookshelf">
-          <h2 className="bookshelf-title">Read</h2>
+          <h2 className="bookshelf-title">Already Read</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
               {booksRead.map(book => (

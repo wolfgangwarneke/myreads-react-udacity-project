@@ -6,7 +6,6 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 body, .app {
-  background: #f3ddac;
   background: #f5e5c0;
 }
 
@@ -23,21 +22,31 @@ a:hover {
 /* main page */
 
 .list-books-title {
-  padding: 10px 0;
+  padding: 10px 0 4px;
   background: #2e332f;
   text-align: center;
 }
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
-  color: white;
   font-family: 'Kranky', sans-serif;
 }
 
 .list-books-title a:link,
 .list-books-title a:visited {
+  transition: 0.4s;
   text-decoration: none;
-  color: white;
+  color: #f1cada;
+}
+
+.list-books-title a:hover {
+  transition: 0.52s;
+  color: #da709c;
+}
+
+.list-books-title .logo a:link,
+.list-books-title .logo a:visited {
+  color: #fff;
 }
 
 .list-books-content {
@@ -264,6 +273,10 @@ a.search-term-button {
   text-align: center;
 }
 
+.book-details-actions-menu form {
+  padding-top: 0.2em;
+}
+
 .book-details-actions-menu input,
 .book-details-actions-menu label {
   padding: 0.4em;
@@ -319,11 +332,17 @@ a.search-term-button {
 
 /* for sticky footer when few or no search results */
 .sticky-wrap {
-  min-height: calc(100vh - 2em);
+  min-height: calc(100vh - 4.4em);
 }
 
 footer {
   text-align: center;
+}
+
+footer span {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 0.4em;
 }
 
 .brand-font {
